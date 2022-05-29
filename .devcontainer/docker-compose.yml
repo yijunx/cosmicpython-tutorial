@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  cosmicpython:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/opt/yijunx/code
+      - ~/etc/localtime:/opt/yijunx/etc/localtime
+      - ~/etc/timezone:/opt/yijunx/etc/timezone
+    command: ["tail -f /dev/null"]
+    ports:
+      - 8000:8000
+
+  db:
+    image: postgres:11
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
