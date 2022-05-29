@@ -26,4 +26,6 @@ ENV PATH "$PATH:/opt/yijunx/.local/bin"
 
 USER ${DOCKER_USER}
 
+RUN export PYTHONPATH=.
+
 ENTRYPOINT [ "/bin/sh", "-c" ]
